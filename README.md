@@ -58,6 +58,35 @@ The plugin depends on the following HTML structure:
 </div>
 ```
 
+### CSS
+
+Minimal CSS Rules for the plugin:
+
+```css
+.dynamic-wrap {
+    transition: max-height 0.25s ease-in-out;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.height-active .dynamic-wrap:before{
+    content: '';
+    position: absolute;
+    left: 0px;
+    right: 0;
+    bottom: 0;
+    height: 30px;
+    background: -moz-linear-gradient(top, rgba(240, 249, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(240, 249, 255, 0)), color-stop(100%, rgba(255, 255, 255, 1)));
+    background: -webkit-linear-gradient(top, rgba(240, 249, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: -o-linear-gradient(top, rgba(240, 249, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(240,249,255,0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(to bottom, rgba(240, 249, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    z-index: 1;
+}
+```
+
 ## Options
 
 The script expect the following attributes in the html tag:
