@@ -1,0 +1,23 @@
+{
+    "name": "DynamicMaxHeight",
+    "description": "Dynamic max height plugin with CSS animation",
+    "version": "0.0.1",
+    "private": true,
+    "author": "Pedro Rogério",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+        "grunt": "~0.4.5",
+        "grunt-contrib-watch": "~0.6.1",
+        "grunt-contrib-uglify": "~0.11.1"
+    },
+    "repository": "https://github.com/pinceladasdaweb/DynamicMaxHeight",
+    "bugs": {
+        "url": "https://github.com/pinceladasdaweb/DynamicMaxHeight/issues"
+    },
+    "licenses": [{
+        "type": "MIT",
+        "url": "http://opensource.org/licenses/MIT"
+    }]
+}
