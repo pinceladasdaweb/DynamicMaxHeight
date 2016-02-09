@@ -14,13 +14,13 @@ module.exports = function (grunt) {
             },
             target: {
                 files: {
-                    'build/dinamycmaxheight.min.js': ['src/dinamycmaxheight.js']
+                    'build/dynamicmaxheight.min.js': ['src/dynamicmaxheight.js']
                 }
             }
         },
         watch: {
             js: {
-                files: ['src/dinamycmaxheight.js'],
+                files: ['src/dynamicmaxheight.js'],
                 tasks: ['uglify']
             }
         }

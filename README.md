@@ -23,10 +23,10 @@ $ git clone git@github.com:pinceladasdaweb/DynamicMaxHeight.git
 
 ### Javascript initialization
 
-Dynamic max height is a [Vanilla JS](http://vanilla-js.com/) plugin with no dependencies. Include the [`dinamycmaxheight.min.js`](build/dinamycmaxheight.min.js) before your ```</body>``` tag and initialise it:
+Dynamic max height is a [Vanilla JS](http://vanilla-js.com/) plugin with no dependencies. Include the [`dynamicmaxheight.min.js`](build/dynamicmaxheight.min.js) before your ```</body>``` tag and initialise it:
 
 ```html
-<script src="path/to/dinamycmaxheight.min.js"></script>
+<script src="path/to/dynamicmaxheight.min.js"></script>
 <script>
     DynamicMaxHeight({
         selector: '.dynamic-max-height'
@@ -38,7 +38,7 @@ You can also load the plugin via AMD (require.js):
 
 ```html
 <script>
-require(["path/to/dinamycmaxheight.min.js"], function(DynamicMaxHeight) {
+require(["path/to/dynamicmaxheight.min.js"], function(DynamicMaxHeight) {
     DynamicMaxHeight({
         selector: '.dynamic-max-height'
     });
