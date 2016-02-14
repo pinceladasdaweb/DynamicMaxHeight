@@ -1,7 +1,7 @@
 {
     "name": "DynamicMaxHeight",
     "description": "Dynamic max height plugin with CSS animation",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "private": true,
     "author": "Pedro Rogério",
     "scripts": {
