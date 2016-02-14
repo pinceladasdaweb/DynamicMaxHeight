@@ -73,21 +73,23 @@
         heightControl: function () {
             Array.prototype.forEach.call(this.selector, function (el) {
                 var maxItemHeight = el.getAttribute('data-maxheight'),
+                    msgMore       = el.getAttribute('data-button-more') || 'Read more',
+                    msgLess       = el.getAttribute('data-button-less') || 'Show less',
                     itemHeight    = el.firstElementChild.offsetHeight;
 
                 el.setAttribute("data-itemheight", itemHeight);
 
                 if (itemHeight > maxItemHeight) {
                     this.addClass(el, 'height-active');
-                    this.showMoreShowLess(el, itemHeight, maxItemHeight);
+                    this.showMoreShowLess(el, itemHeight, maxItemHeight, msgMore, msgLess);
                     el.firstElementChild.style.maxHeight = maxItemHeight + 'px';
                 }
             }.bind(this));
         },
-        showMoreShowLess: function (el, iHeight, mItemHeight) {
+        showMoreShowLess: function (el, iHeight, mItemHeight, msgMore, msgLess) {
             var a, text;
 
-            text = this.hasClass(el, 'height-active') ? 'Read more' : 'Show less';
+            text = this.hasClass(el, 'height-active') ? msgMore : msgLess;
             a    = this.createEls('a', {className: 'dynamic-show-more', href: '#', title: text}, text);
 
             el.appendChild(a);
@@ -97,10 +99,10 @@
 
                 if (e.target && e.target.nodeName === 'A' && e.target.className === 'dynamic-show-more') {
                     if (this.hasClass(el, 'height-active')) {
-                        e.target.textContent = 'Show less';
+                        e.target.textContent = msgLess;
                         el.firstElementChild.style.maxHeight = iHeight + 'px';
                     } else {
-                        e.target.textContent = 'Read more';
+                        e.target.textContent = msgMore;
                         el.firstElementChild.style.maxHeight = mItemHeight + 'px';
                     }
                     this.toggleClass(el, 'height-active');
