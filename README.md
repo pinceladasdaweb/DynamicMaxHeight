@@ -8,6 +8,13 @@ If layer height is higher than that custom value (data-maxheight), a "show more"
 
 It works with CSS3 transition to get a smooth animation.
 
+## Features
+
+- Configure `max-height` via data attribute
+- Button appears only in if `item-height` > `max-height`
+- Configure "Read more / Show less" messages via data attributes
+- Animate via CSS transitions (best performance)
+
 ## Demo
 
 View [demo here](http://www.pinceladasdaweb.com.br/blog/uploads/dynamicheight/)
@@ -51,7 +58,7 @@ require(["path/to/dynamicmaxheight.min.js"], function(DynamicMaxHeight) {
 The plugin depends on the following HTML structure:
 
 ```html
-<div class="dynamic-max-height" data-maxheight="70">
+<div class="dynamic-max-height" data-maxheight="70" data-button-more="Show more" data-button-less="Show less">
     <div class="dynamic-wrap">
         <p> My life fades. The vision dims. All that remains are memories. I remember a time of chaos... ruined dreams... this wasted land. But most of all, I remember The Road Warrior. The man we called "Max." To understand who he was, you have to go back to another time... when the world was powered by the black fuel... and the desert sprouted great cities of pipe and steel. Gone now... swept away. For reasons long forgotten, two mighty warrior tribes went to war, and touched off a blaze which engulfed them all. Without fuel they were nothing. They'd built a house of straw. The thundering machines sputtered and stopped. Their leaders talked and talked and talked. But nothing could stem the avalanche. Their world crumbled. The cities exploded. A whirlwind of looting, a firestorm of fear. Men began to feed on men. On the roads it was a white line nightmare. Only those mobile enough to scavenge, brutal enough to pillage would survive. The gangs took over the highways, ready to wage war for a tank of juice. And in this maelstrom of decay, ordinary men were battered and smashed... men like Max... the warrior Max. In the roar of an engine, he lost everything... and became a shell of a man... a burnt-out, desolate man, a man haunted by the demons of his past, a man who wandered out into the wasteland. And it was here, in this blighted place, that he learned to live again.</p>
     </div>
@@ -91,9 +98,11 @@ Minimal CSS Rules for the plugin:
 
 The script expect the following attributes in the html tag:
 
-| Value                              | Description                                                              |
-| ---------------------------------- |:------------------------------------------------------------------------:|
-| **data-maxheight**                 | Change "data-maxheight" in each item to set a different max height value |
+| Value                              | Description                                                                          |
+| ---------------------------------- |:------------------------------------------------------------------------------------:|
+| **data-maxheight**                 | Required. Change "data-maxheight" in each item to set a different max height value   |
+| **data-button-more**               | Optional. Change "data-button-more" in each item to set a custom "Show more" message |
+| **data-button-less**               | Optional. Change "data-button-less" in each item to set a custom "Show less" message |
 
 ##Browser Support
 
