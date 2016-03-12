@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Dynamicmaxheight by pinceladasdaweb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Dynamicmaxheight</h1>
+      <h2 class="project-tagline">Dynamic max height plugin with CSS animation</h2>
+      <a href="https://github.com/pinceladasdaweb/DynamicMaxHeight" class="btn">View on GitHub</a>
+      <a href="https://github.com/pinceladasdaweb/DynamicMaxHeight/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/pinceladasdaweb/DynamicMaxHeight/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="dynamic-max-height-plugin" class="anchor" href="#dynamic-max-height-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dynamic max height plugin</h1>
+
+<blockquote>
+<p>...or how to animate to an unknow height with CSS and pure JavaScript</p>
+</blockquote>
+
+<h2>
+<a id="what-is-it" class="anchor" href="#what-is-it" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is it?</h2>
+
+<p>This is a pure JavaScript plugin to dynamically check a layer height and compare it to a custom height value.
+If layer height is higher than that custom value (data-maxheight), a "show more" button and a bottom gradient will appear.</p>
+
+<p>It works with CSS3 transition to get a smooth animation.</p>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
+
+<ul>
+<li>Configure <code>max-height</code> via data attribute</li>
+<li>Button appears only in if <code>item-height</code> &gt; <code>max-height</code>
+</li>
+<li>Configure "Read more / Show less" messages via data attributes</li>
+<li>Animate via CSS transitions (best performance)</li>
+</ul>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
+
+<p>View <a href="https://pinceladasdaweb.github.io/DynamicMaxHeight/example/">demo here</a></p>
+
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"># Get the latest snapshot</span>
+$ git clone git@github.com:pinceladasdaweb/DynamicMaxHeight.git</pre></div>
+
+<h2>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use?</h2>
+
+<h3>
+<a id="javascript-initialization" class="anchor" href="#javascript-initialization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Javascript initialization</h3>
+
+<p>Dynamic max height is a <a href="http://vanilla-js.com/">Vanilla JS</a> plugin with no dependencies. Include the <a href="build/dynamicmaxheight.min.js"><code>dynamicmaxheight.min.js</code></a> before your <code>&lt;/body&gt;</code> tag and initialise it:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>path/to/dynamicmaxheight.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+<span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1">    <span class="pl-en">DynamicMaxHeight</span>({</span>
+<span class="pl-s1">        selector<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>.dynamic-max-height<span class="pl-pds">'</span></span></span>
+<span class="pl-s1">    });</span>
+<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
+
+<p>You can also load the plugin via AMD (require.js):</p>
+
+<div class="highlight highlight-text-html-basic"><pre><span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1"><span class="pl-c1">require</span>([<span class="pl-s"><span class="pl-pds">"</span>path/to/dynamicmaxheight.min.js<span class="pl-pds">"</span></span>], <span class="pl-k">function</span>(<span class="pl-smi">DynamicMaxHeight</span>) {</span>
+<span class="pl-s1">    <span class="pl-en">DynamicMaxHeight</span>({</span>
+<span class="pl-s1">        selector<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>.dynamic-max-height<span class="pl-pds">'</span></span></span>
+<span class="pl-s1">    });</span>
+<span class="pl-s1">});</span>
+<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
+
+<h3>
+<a id="html" class="anchor" href="#html" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>HTML</h3>
+
+<p>The plugin depends on the following HTML structure:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>dynamic-max-height<span class="pl-pds">"</span></span> <span class="pl-e">data-maxheight</span>=<span class="pl-s"><span class="pl-pds">"</span>70<span class="pl-pds">"</span></span> <span class="pl-e">data-button-more</span>=<span class="pl-s"><span class="pl-pds">"</span>Show more<span class="pl-pds">"</span></span> <span class="pl-e">data-button-less</span>=<span class="pl-s"><span class="pl-pds">"</span>Show less<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>dynamic-wrap<span class="pl-pds">"</span></span>&gt;
+        &lt;p&gt; My life fades. The vision dims. All that remains are memories. I remember a time of chaos... ruined dreams... this wasted land. But most of all, I remember The Road Warrior. The man we called "Max." To understand who he was, you have to go back to another time... when the world was powered by the black fuel... and the desert sprouted great cities of pipe and steel. Gone now... swept away. For reasons long forgotten, two mighty warrior tribes went to war, and touched off a blaze which engulfed them all. Without fuel they were nothing. They'd built a house of straw. The thundering machines sputtered and stopped. Their leaders talked and talked and talked. But nothing could stem the avalanche. Their world crumbled. The cities exploded. A whirlwind of looting, a firestorm of fear. Men began to feed on men. On the roads it was a white line nightmare. Only those mobile enough to scavenge, brutal enough to pillage would survive. The gangs took over the highways, ready to wage war for a tank of juice. And in this maelstrom of decay, ordinary men were battered and smashed... men like Max... the warrior Max. In the roar of an engine, he lost everything... and became a shell of a man... a burnt-out, desolate man, a man haunted by the demons of his past, a man who wandered out into the wasteland. And it was here, in this blighted place, that he learned to live again.&lt;/p&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<h3>
+<a id="css" class="anchor" href="#css" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CSS</h3>
+
+<p>Minimal CSS Rules for the plugin:</p>
+
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.dynamic-wrap</span> {
+    <span class="pl-c1"><span class="pl-c1">transition</span></span>: max-height <span class="pl-c1">0.25<span class="pl-k">s</span></span> ease-in-out;
+    <span class="pl-c1"><span class="pl-c1">width</span></span>: <span class="pl-c1">100<span class="pl-k">%</span></span>;
+    <span class="pl-c1"><span class="pl-c1">overflow</span></span>: <span class="pl-c1">hidden</span>;
+    <span class="pl-c1"><span class="pl-c1">position</span></span>: <span class="pl-c1">relative</span>;
+}
+
+<span class="pl-e">.height-active</span> <span class="pl-e">.dynamic-wrap</span><span class="pl-e">:before</span>{
+    <span class="pl-c1"><span class="pl-c1">content</span></span>: <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>;
+    <span class="pl-c1"><span class="pl-c1">position</span></span>: <span class="pl-c1">absolute</span>;
+    <span class="pl-c1"><span class="pl-c1">left</span></span>: <span class="pl-c1">0<span class="pl-k">px</span></span>;
+    <span class="pl-c1"><span class="pl-c1">right</span></span>: <span class="pl-c1">0</span>;
+    <span class="pl-c1"><span class="pl-c1">bottom</span></span>: <span class="pl-c1">0</span>;
+    <span class="pl-c1"><span class="pl-c1">height</span></span>: <span class="pl-c1">30<span class="pl-k">px</span></span>;
+    <span class="pl-c1"><span class="pl-c1">background</span></span>: -moz-linear-gradient(<span class="pl-c1">top</span>, <span class="pl-c1">rgba</span>(<span class="pl-c1">240, 249, 255, 0</span>) <span class="pl-c1">0<span class="pl-k">%</span></span>, <span class="pl-c1">rgba</span>(<span class="pl-c1">255, 255, 255, 1</span>) <span class="pl-c1">100<span class="pl-k">%</span></span>);
+    <span class="pl-c1"><span class="pl-c1">background</span></span>: -webkit-gradient(linear, <span class="pl-c1">left</span> <span class="pl-c1">top</span>, <span class="pl-c1">left</span> <span class="pl-c1">bottom</span>, color-stop(<span class="pl-c1">0<span class="pl-k">%</span></span>, <span class="pl-c1">rgba</span>(<span class="pl-c1">240, 249, 255, 0</span>)), color-stop(<span class="pl-c1">100<span class="pl-k">%</span></span>, <span class="pl-c1">rgba</span>(<span class="pl-c1">255, 255, 255, 1</span>)));
+    <span class="pl-c1"><span class="pl-c1">background</span></span>: -webkit-linear-gradient(<span class="pl-c1">top</span>, <span class="pl-c1">rgba</span>(<span class="pl-c1">240, 249, 255, 0</span>) <span class="pl-c1">0<span class="pl-k">%</span></span>, <span class="pl-c1">rgba</span>(<span class="pl-c1">255, 255, 255, 1</span>) <span class="pl-c1">100<span class="pl-k">%</span></span>);
+    <span class="pl-c1"><span class="pl-c1">background</span></span>: -o-linear-gradient(<span class="pl-c1">top</span>, <span class="pl-c1">rgba</span>(<span class="pl-c1">240, 249, 255, 0</span>) <span class="pl-c1">0<span class="pl-k">%</span></span>, <span class="pl-c1">rgba</span>(<span class="pl-c1">255, 255, 255, 1</span>) <span class="pl-c1">100<span class="pl-k">%</span></span>);
+    <span class="pl-c1"><span class="pl-c1">background</span></span>: -ms-linear-gradient(<span class="pl-c1">top</span>, <span class="pl-c1">rgba</span>(<span class="pl-c1">240,249,255,0</span>) <span class="pl-c1">0<span class="pl-k">%</span></span>, <span class="pl-c1">rgba</span>(<span class="pl-c1">255, 255, 255, 1</span>) <span class="pl-c1">100<span class="pl-k">%</span></span>);
+    <span class="pl-c1"><span class="pl-c1">background</span></span>: linear-gradient(to <span class="pl-c1">bottom</span>, <span class="pl-c1">rgba</span>(<span class="pl-c1">240, 249, 255, 0</span>) <span class="pl-c1">0<span class="pl-k">%</span></span>, <span class="pl-c1">rgba</span>(<span class="pl-c1">255, 255, 255, 1</span>) <span class="pl-c1">100<span class="pl-k">%</span></span>);
+    <span class="pl-c1"><span class="pl-c1">z-index</span></span>: <span class="pl-c1">1</span>;
+}</pre></div>
+
+<h2>
+<a id="options" class="anchor" href="#options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Options</h2>
+
+<p>The script expect the following attributes in the html tag:</p>
+
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>data-maxheight</strong></td>
+<td align="center">Required. Change "data-maxheight" in each item to set a different max height value</td>
+</tr>
+<tr>
+<td><strong>data-button-more</strong></td>
+<td align="center">Optional. Change "data-button-more" in each item to set a custom "Show more" message</td>
+</tr>
+<tr>
+<td><strong>data-button-less</strong></td>
+<td align="center">Optional. Change "data-button-less" in each item to set a custom "Show less" message</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="browser-support" class="anchor" href="#browser-support" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Browser Support</h2>
+
+<table>
+<thead>
+<tr>
+<th><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/internet-explorer/internet-explorer_48x48.png" alt="IE"></th>
+<th><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/chrome/chrome_48x48.png" alt="Chrome"></th>
+<th><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/firefox/firefox_48x48.png" alt="Firefox"></th>
+<th><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/opera/opera_48x48.png" alt="Opera"></th>
+<th><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/safari/safari_48x48.png" alt="Safari"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IE 10+ ✔</td>
+<td>Latest ✔</td>
+<td>Latest ✔</td>
+<td>Latest ✔</td>
+<td>Latest ✔</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="thanks" class="anchor" href="#thanks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Thanks</h2>
+
+<p>Many thanks to <a href="https://github.com/JoanClaret/jquery-dynamic-max-height">Joan Claret</a>, who originally created the plugin for jQuery.</p>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Check <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> for more information.</p>
+
+<h2>
+<a id="history" class="anchor" href="#history" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>History</h2>
+
+<p>Check <a href="https://github.com/pinceladasdaweb/DynamicMaxHeight/releases">Releases</a> for detailed changelog.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p><a href="LICENSE">MIT</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/pinceladasdaweb/DynamicMaxHeight">Dynamicmaxheight</a> is maintained by <a href="https://github.com/pinceladasdaweb">pinceladasdaweb</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
