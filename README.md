@@ -17,7 +17,7 @@ It works with CSS3 transition to get a smooth animation.
 
 ## Demo
 
-View [demo here](http://www.pinceladasdaweb.com.br/blog/uploads/dynamicheight/)
+View [demo here](https://pinceladasdaweb.github.io/DynamicMaxHeight/example/)
 
 ## Getting Started
 
